@@ -1,0 +1,432 @@
+{
+    "inputs": {
+      "IsFullTraining": "True",
+      "BaseTrainingJobName": "fw-det-base-job-ce6018899cdd4ebfa92499b1a1ba11ed",
+      "IncrementalTrainingJobName": "fw-det-incremental-job-ce6018899cdd4ebfa92499b1a1ba11ed",
+      "BaseTrainingDataPath": "s3://logo-detection-data/pipeline-exp-data/LogoDet-3K/",
+      "IncrementalTrainingDataPath": "s3://logo-detection-data/pipeline-exp-data/FreeWheel-5K-by-video-name/",
+      "BestWeightsPath": "s3://logo-detection-data/pipeline-exp-data/best-weights/",
+      "InferenceCodePath": "s3://logo-detection-data/pipeline-exp-data/inference/",
+      "ModelPath": "s3://logo-detection-data/pipeline-exp-data/model/",
+      "ModelName": "fw-det-pipeline-model-ce6018899cdd4ebfa92499b1a1ba11ed",
+      "EndpointName": "fw-det-pipeline-endpoint-ce6018899cdd4ebfa92499b1a1ba11ed",
+      "LambdaName": "test",
+      "BaseTrainingResults": {
+        "SdkResponseMetadata": null,
+        "SdkHttpMetadata": null,
+        "TrainingJobName": "fw-det-base-job-ce6018899cdd4ebfa92499b1a1ba11ed",
+        "TrainingJobArn": "arn:aws:sagemaker:us-west-2:935206693453:training-job/fw-det-base-job-ce6018899cdd4ebfa92499b1a1ba11ed",
+        "ProcessingJobArn": null,
+        "TuningJobArn": null,
+        "LabelingJobArn": null,
+        "AutoMLJobArn": null,
+        "ModelArtifacts": {
+          "S3ModelArtifacts": "s3://sagemaker-us-west-2-935206693453/fw-det-base-job-ce6018899cdd4ebfa92499b1a1ba11ed/output/model.tar.gz"
+        },
+        "TrainingJobOutput": null,
+        "TrainingJobStatus": "Completed",
+        "SecondaryStatus": "Completed",
+        "FailureReason": null,
+        "HyperParameters": {
+          "sagemaker_program": "\"train.py\"",
+          "data": "\"/opt/ml/input/data/training/cfg/LogoDet-3K.yaml\"",
+          "batch": "4",
+          "project": "\"/opt/ml/model/\"",
+          "sagemaker_region": "\"us-west-2\"",
+          "weight": "\"yolov8s.pt\"",
+          "sagemaker_submit_directory": "\"s3://sagemaker-us-west-2-935206693453/pytorch-training-2023-06-14-03-53-54-526/source/sourcedir.tar.gz\"",
+          "imgsz": "640",
+          "sagemaker_container_log_level": "20",
+          "name": "\"fw-logo-detection\"",
+          "sagemaker_job_name": "\"pytorch-training-2023-06-14-03-53-54-642\"",
+          "epochs": "1",
+          "workers": "1"
+        },
+        "AlgorithmSpecification": {
+          "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training:1.13.1-gpu-py39",
+          "TrainingImageConfig": null,
+          "AlgorithmName": null,
+          "TrainingInputMode": "FILE",
+          "MetricDefinitions": null,
+          "EnableSageMakerMetricsTimeSeries": null,
+          "ContainerEntrypoint": null,
+          "ContainerArguments": null
+        },
+        "RoleArn": "arn:aws:iam::935206693453:role/service-role/AmazonSageMaker-ExecutionRole-20230327T173821",
+        "InputDataConfig": [
+          {
+            "ChannelName": "training",
+            "DataSource": {
+              "S3DataSource": {
+                "S3DataType": "S3_PREFIX",
+                "S3Uri": "s3://logo-detection-data/pipeline-exp-data/LogoDet-3K/",
+                "S3DataDistributionType": "FULLY_REPLICATED",
+                "AttributeNames": null,
+                "InstanceGroupNames": null
+              },
+              "FileSystemDataSource": null
+            },
+            "ContentType": null,
+            "CompressionType": "NONE",
+            "RecordWrapperType": "NONE",
+            "InputMode": null,
+            "ShuffleConfig": null,
+            "EnableFFM": null
+          }
+        ],
+        "OutputDataConfig": {
+          "KmsKeyId": null,
+          "S3OutputPath": "s3://sagemaker-us-west-2-935206693453/",
+          "CompressionType": null,
+          "RemoveJobNameFromS3OutputPath": null,
+          "DisableModelUpload": null,
+          "Channels": null
+        },
+        "ResourceConfig": {
+          "InstanceType": "ml.p3.2xlarge",
+          "InstanceCount": 1,
+          "VolumeSizeInGB": 30,
+          "VolumeKmsKeyId": null,
+          "KeepAlivePeriodInSeconds": 0,
+          "CapacityReservationIds": null,
+          "InstanceGroups": null
+        },
+        "WarmPoolStatus": null,
+        "VpcConfig": null,
+        "StoppingCondition": {
+          "MaxRuntimeInSeconds": 86400,
+          "MaxWaitTimeInSeconds": null
+        },
+        "CreationTime": 1686714883720,
+        "TrainingStartTime": 1686714976775,
+        "TrainingEndTime": 1686715805975,
+        "LastModifiedTime": 1686715805975,
+        "SecondaryStatusTransitions": [
+          {
+            "Status": "Starting",
+            "StartTime": 1686714883720,
+            "EndTime": 1686714976775,
+            "StatusMessage": "Preparing the instances for training"
+          },
+          {
+            "Status": "Downloading",
+            "StartTime": 1686714976775,
+            "EndTime": 1686715007212,
+            "StatusMessage": "Downloading input data"
+          },
+          {
+            "Status": "Training",
+            "StartTime": 1686715007212,
+            "EndTime": 1686715695466,
+            "StatusMessage": "Training image download completed. Training in progress."
+          },
+          {
+            "Status": "Uploading",
+            "StartTime": 1686715695466,
+            "EndTime": 1686715805975,
+            "StatusMessage": "Uploading generated training model"
+          },
+          {
+            "Status": "Completed",
+            "StartTime": 1686715805975,
+            "EndTime": 1686715805975,
+            "StatusMessage": "Training job completed"
+          }
+        ],
+        "FinalMetricDataList": null,
+        "EnableNetworkIsolation": null,
+        "EnableInterContainerTrafficEncryption": null,
+        "EnableManagedSpotTraining": null,
+        "CheckpointConfig": null,
+        "TrainingTimeInSeconds": null,
+        "BillableTimeInSeconds": null,
+        "DebugHookConfig": {
+          "LocalPath": null,
+          "S3OutputPath": "s3://sagemaker-us-west-2-935206693453/",
+          "HookParameters": null,
+          "CollectionConfigurations": []
+        },
+        "ExperimentConfig": null,
+        "DebugRuleConfigurations": null,
+        "TensorBoardOutputConfig": null,
+        "DebugRuleEvaluationStatuses": null,
+        "UpstreamPlatformConfig": null,
+        "ProfilerConfig": null,
+        "ProfilerRuleConfigurations": null,
+        "ProfilerRuleEvaluationStatuses": null,
+        "ProfilingStatus": null,
+        "Environment": null,
+        "RetryStrategy": null,
+        "LastModifiedBy": null,
+        "CreatedBy": null,
+        "DisableEFA": null,
+        "ProcessingJobConfig": null,
+        "RemoteDebugConfig": null,
+        "Tags": {
+          "AWS_STEP_FUNCTIONS_EXECUTION_ARN": "arn:aws:states:us-west-2:935206693453:execution:FW-Det-Pipline-20b23e3733e0424ab75c3b677f05f407:59cd0dc5-b5ee-4787-a6dc-309adf965a9c",
+          "MANAGED_BY_AWS": "STARTED_BY_STEP_FUNCTIONS"
+        }
+      },
+      "WeightHelperResult": {
+        "ExecutedVersion": "$LATEST",
+        "Payload": {
+          "statusCode": 200,
+          "body": "{\"message\": \"hello world\"}"
+        },
+        "SdkHttpMetadata": {
+          "AllHttpHeaders": {
+            "X-Amz-Executed-Version": [
+              "$LATEST"
+            ],
+            "x-amzn-Remapped-Content-Length": [
+              "0"
+            ],
+            "Connection": [
+              "keep-alive"
+            ],
+            "x-amzn-RequestId": [
+              "cd5aee7e-6d38-4098-8845-0fedd76c3071"
+            ],
+            "Content-Length": [
+              "61"
+            ],
+            "Date": [
+              "Wed, 14 Jun 2023 04:11:22 GMT"
+            ],
+            "X-Amzn-Trace-Id": [
+              "root=1-64893da0-7c0802e77a68a188509e385d;sampled=0;lineage=01f5e853:0"
+            ],
+            "Content-Type": [
+              "application/json"
+            ]
+          },
+          "HttpHeaders": {
+            "Connection": "keep-alive",
+            "Content-Length": "61",
+            "Content-Type": "application/json",
+            "Date": "Wed, 14 Jun 2023 04:11:22 GMT",
+            "X-Amz-Executed-Version": "$LATEST",
+            "x-amzn-Remapped-Content-Length": "0",
+            "x-amzn-RequestId": "cd5aee7e-6d38-4098-8845-0fedd76c3071",
+            "X-Amzn-Trace-Id": "root=1-64893da0-7c0802e77a68a188509e385d;sampled=0;lineage=01f5e853:0"
+          },
+          "HttpStatusCode": 200
+        },
+        "SdkResponseMetadata": {
+          "RequestId": "cd5aee7e-6d38-4098-8845-0fedd76c3071"
+        },
+        "StatusCode": 200
+      },
+      "IncrementalTrainingResults": {
+        "SdkResponseMetadata": null,
+        "SdkHttpMetadata": null,
+        "TrainingJobName": "fw-det-incremental-job-ce6018899cdd4ebfa92499b1a1ba11ed",
+        "TrainingJobArn": "arn:aws:sagemaker:us-west-2:935206693453:training-job/fw-det-incremental-job-ce6018899cdd4ebfa92499b1a1ba11ed",
+        "ProcessingJobArn": null,
+        "TuningJobArn": null,
+        "LabelingJobArn": null,
+        "AutoMLJobArn": null,
+        "ModelArtifacts": {
+          "S3ModelArtifacts": "s3://sagemaker-us-west-2-935206693453/fw-det-incremental-job-ce6018899cdd4ebfa92499b1a1ba11ed/output/model.tar.gz"
+        },
+        "TrainingJobOutput": null,
+        "TrainingJobStatus": "Completed",
+        "SecondaryStatus": "Completed",
+        "FailureReason": null,
+        "HyperParameters": {
+          "imgsz": "640",
+          "sagemaker_container_log_level": "20",
+          "sagemaker_program": "\"train.py\"",
+          "data": "\"/opt/ml/input/data/training/cfg/FreeWheel-5K-by-video-name.yaml\"",
+          "batch": "4",
+          "name": "\"fw-logo-detection\"",
+          "project": "\"/opt/ml/model/\"",
+          "sagemaker_region": "\"us-west-2\"",
+          "weight": "\"/opt/ml/input/data/training/weights/yolov8s.pt\"",
+          "sagemaker_job_name": "\"pytorch-training-2023-06-14-03-53-56-854\"",
+          "epochs": "1",
+          "sagemaker_submit_directory": "\"s3://sagemaker-us-west-2-935206693453/pytorch-training-2023-06-14-03-53-56-765/source/sourcedir.tar.gz\""
+        },
+        "AlgorithmSpecification": {
+          "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training:1.13.1-gpu-py39",
+          "TrainingImageConfig": null,
+          "AlgorithmName": null,
+          "TrainingInputMode": "FILE",
+          "MetricDefinitions": null,
+          "EnableSageMakerMetricsTimeSeries": null,
+          "ContainerEntrypoint": null,
+          "ContainerArguments": null
+        },
+        "RoleArn": "arn:aws:iam::935206693453:role/service-role/AmazonSageMaker-ExecutionRole-20230327T173821",
+        "InputDataConfig": [
+          {
+            "ChannelName": "training",
+            "DataSource": {
+              "S3DataSource": {
+                "S3DataType": "S3_PREFIX",
+                "S3Uri": "s3://logo-detection-data/pipeline-exp-data/FreeWheel-5K-by-video-name/",
+                "S3DataDistributionType": "FULLY_REPLICATED",
+                "AttributeNames": null,
+                "InstanceGroupNames": null
+              },
+              "FileSystemDataSource": null
+            },
+            "ContentType": null,
+            "CompressionType": "NONE",
+            "RecordWrapperType": "NONE",
+            "InputMode": null,
+            "ShuffleConfig": null,
+            "EnableFFM": null
+          }
+        ],
+        "OutputDataConfig": {
+          "KmsKeyId": null,
+          "S3OutputPath": "s3://sagemaker-us-west-2-935206693453/",
+          "CompressionType": null,
+          "RemoveJobNameFromS3OutputPath": null,
+          "DisableModelUpload": null,
+          "Channels": null
+        },
+        "ResourceConfig": {
+          "InstanceType": "ml.p3.2xlarge",
+          "InstanceCount": 1,
+          "VolumeSizeInGB": 30,
+          "VolumeKmsKeyId": null,
+          "KeepAlivePeriodInSeconds": 0,
+          "CapacityReservationIds": null,
+          "InstanceGroups": null
+        },
+        "WarmPoolStatus": null,
+        "VpcConfig": null,
+        "StoppingCondition": {
+          "MaxRuntimeInSeconds": 86400,
+          "MaxWaitTimeInSeconds": null
+        },
+        "CreationTime": 1686715882945,
+        "TrainingStartTime": 1686715982625,
+        "TrainingEndTime": 1686716485743,
+        "LastModifiedTime": 1686716486161,
+        "SecondaryStatusTransitions": [
+          {
+            "Status": "Starting",
+            "StartTime": 1686715882945,
+            "EndTime": 1686715982625,
+            "StatusMessage": "Preparing the instances for training"
+          },
+          {
+            "Status": "Downloading",
+            "StartTime": 1686715982625,
+            "EndTime": 1686716028078,
+            "StatusMessage": "Downloading input data"
+          },
+          {
+            "Status": "Training",
+            "StartTime": 1686716028078,
+            "EndTime": 1686716470347,
+            "StatusMessage": "Training image download completed. Training in progress."
+          },
+          {
+            "Status": "Uploading",
+            "StartTime": 1686716470347,
+            "EndTime": 1686716485743,
+            "StatusMessage": "Uploading generated training model"
+          },
+          {
+            "Status": "Completed",
+            "StartTime": 1686716485743,
+            "EndTime": 1686716485743,
+            "StatusMessage": "Training job completed"
+          }
+        ],
+        "FinalMetricDataList": null,
+        "EnableNetworkIsolation": null,
+        "EnableInterContainerTrafficEncryption": null,
+        "EnableManagedSpotTraining": null,
+        "CheckpointConfig": null,
+        "TrainingTimeInSeconds": null,
+        "BillableTimeInSeconds": null,
+        "DebugHookConfig": {
+          "LocalPath": null,
+          "S3OutputPath": "s3://sagemaker-us-west-2-935206693453/",
+          "HookParameters": null,
+          "CollectionConfigurations": []
+        },
+        "ExperimentConfig": null,
+        "DebugRuleConfigurations": null,
+        "TensorBoardOutputConfig": null,
+        "DebugRuleEvaluationStatuses": null,
+        "UpstreamPlatformConfig": null,
+        "ProfilerConfig": null,
+        "ProfilerRuleConfigurations": null,
+        "ProfilerRuleEvaluationStatuses": null,
+        "ProfilingStatus": null,
+        "Environment": null,
+        "RetryStrategy": null,
+        "LastModifiedBy": null,
+        "CreatedBy": null,
+        "DisableEFA": null,
+        "ProcessingJobConfig": null,
+        "RemoteDebugConfig": null,
+        "Tags": {
+          "AWS_STEP_FUNCTIONS_EXECUTION_ARN": "arn:aws:states:us-west-2:935206693453:execution:FW-Det-Pipline-20b23e3733e0424ab75c3b677f05f407:59cd0dc5-b5ee-4787-a6dc-309adf965a9c",
+          "MANAGED_BY_AWS": "STARTED_BY_STEP_FUNCTIONS"
+        }
+      },
+      "QueryTrainingMetricsResult": {
+        "ExecutedVersion": "$LATEST",
+        "Payload": {
+          "statusCode": 200,
+          "trainingMetrics": [
+            {
+              "MetricName": "mAP50",
+              "Value": 0.2280000001192093,
+              "Timestamp": 1686716456
+            }
+          ]
+        },
+        "SdkHttpMetadata": {
+          "AllHttpHeaders": {
+            "X-Amz-Executed-Version": [
+              "$LATEST"
+            ],
+            "x-amzn-Remapped-Content-Length": [
+              "0"
+            ],
+            "Connection": [
+              "keep-alive"
+            ],
+            "x-amzn-RequestId": [
+              "de1f6ee1-cfcf-4ae3-bd3e-197fb8516384"
+            ],
+            "Content-Length": [
+              "121"
+            ],
+            "Date": [
+              "Wed, 14 Jun 2023 04:21:29 GMT"
+            ],
+            "X-Amzn-Trace-Id": [
+              "root=1-64894048-35caf47d584be24c3e899628;sampled=0;lineage=1b2d7750:0"
+            ],
+            "Content-Type": [
+              "application/json"
+            ]
+          },
+          "HttpHeaders": {
+            "Connection": "keep-alive",
+            "Content-Length": "121",
+            "Content-Type": "application/json",
+            "Date": "Wed, 14 Jun 2023 04:21:29 GMT",
+            "X-Amz-Executed-Version": "$LATEST",
+            "x-amzn-Remapped-Content-Length": "0",
+            "x-amzn-RequestId": "de1f6ee1-cfcf-4ae3-bd3e-197fb8516384",
+            "X-Amzn-Trace-Id": "root=1-64894048-35caf47d584be24c3e899628;sampled=0;lineage=1b2d7750:0"
+          },
+          "HttpStatusCode": 200
+        },
+        "SdkResponseMetadata": {
+          "RequestId": "de1f6ee1-cfcf-4ae3-bd3e-197fb8516384"
+        },
+        "StatusCode": 200
+      }
+    }
+}
