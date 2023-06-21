@@ -1,0 +1,166 @@
+{
+    "inputs": {
+        "IsFullTraining": "Tru",
+        "BaseTrainingJobName": "fw-det-base-job-e152a39bcdc649a998dc460d1bd281f1",
+        "IncrementalTrainingJobName": "fw-det-incremental-job-e152a39bcdc649a998dc460d1bd281f1",
+        "BaseTrainingDataPath": "s3://logo-detection-data/pipeline-exp-data/LogoDet-3K/",
+        "IncrementalTrainingDataPath": "s3://logo-detection-data/pipeline-exp-data/FreeWheel-5K-by-video-name/",
+        "BestWeightsPath": "s3://logo-detection-data/pipeline-exp-data/best-weights/",
+        "ModelName": "fw-det-pipeline-model-e152a39bcdc649a998dc460d1bd281f1",
+        "EndpointName": "fw-det-pipeline-endpoint-e152a39bcdc649a998dc460d1bd281f1",
+        "LambdaName": "test",
+        "BaseTrainingResults": {
+            "SdkResponseMetadata": null,
+            "SdkHttpMetadata": null,
+            "TrainingJobName": "fw-det-base-job-e152a39bcdc649a998dc460d1bd281f1",
+            "TrainingJobArn": "arn:aws:sagemaker:us-west-2:935206693453:training-job/fw-det-base-job-e152a39bcdc649a998dc460d1bd281f1",
+            "ProcessingJobArn": null,
+            "TuningJobArn": null,
+            "LabelingJobArn": null,
+            "AutoMLJobArn": null,
+            "ModelArtifacts": {
+                "S3ModelArtifacts": "s3://sagemaker-us-west-2-935206693453/fw-det-base-job-e152a39bcdc649a998dc460d1bd281f1/output/model.tar.gz"
+            },
+            "TrainingJobOutput": null,
+            "TrainingJobStatus": "Completed",
+            "SecondaryStatus": "Completed",
+            "FailureReason": null,
+            "HyperParameters": {
+                "sagemaker_program": "\"train.py\"",
+                "data": "\"/opt/ml/input/data/training/cfg/LogoDet-3K.yaml\"",
+                "batch": "4",
+                "project": "\"/opt/ml/model/\"",
+                "sagemaker_region": "\"us-west-2\"",
+                "weight": "\"yolov8s.pt\"",
+                "sagemaker_submit_directory": "\"s3://sagemaker-us-west-2-935206693453/pytorch-training-2023-06-07-09-01-22-334/source/sourcedir.tar.gz\"",
+                "imgsz": "640",
+                "sagemaker_container_log_level": "20",
+                "name": "\"fw-logo-detection\"",
+                "sagemaker_job_name": "\"pytorch-training-2023-06-07-09-01-22-480\"",
+                "epochs": "1",
+                "workers": "1"
+            },
+            "AlgorithmSpecification": {
+                "TrainingImage": "763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-training:1.13.1-gpu-py39",
+                "TrainingImageConfig": null,
+                "AlgorithmName": null,
+                "TrainingInputMode": "FILE",
+                "MetricDefinitions": null,
+                "EnableSageMakerMetricsTimeSeries": null,
+                "ContainerEntrypoint": null,
+                "ContainerArguments": null
+            },
+            "RoleArn": "arn:aws:iam::935206693453:role/service-role/AmazonSageMaker-ExecutionRole-20230327T173821",
+            "InputDataConfig": [
+                {
+                    "ChannelName": "training",
+                    "DataSource": {
+                        "S3DataSource": {
+                            "S3DataType": "S3_PREFIX",
+                            "S3Uri": "s3://logo-detection-data/pipeline-exp-data/LogoDet-3K/",
+                            "S3DataDistributionType": "FULLY_REPLICATED",
+                            "AttributeNames": null,
+                            "InstanceGroupNames": null
+                        },
+                        "FileSystemDataSource": null
+                    },
+                    "ContentType": null,
+                    "CompressionType": "NONE",
+                    "RecordWrapperType": "NONE",
+                    "InputMode": null,
+                    "ShuffleConfig": null,
+                    "EnableFFM": null
+                }
+            ],
+            "OutputDataConfig": {
+                "KmsKeyId": null,
+                "S3OutputPath": "s3://sagemaker-us-west-2-935206693453/",
+                "CompressionType": null,
+                "RemoveJobNameFromS3OutputPath": null
+            },
+            "ResourceConfig": {
+                "InstanceType": "ml.p3.2xlarge",
+                "InstanceCount": 1,
+                "VolumeSizeInGB": 30,
+                "VolumeKmsKeyId": null,
+                "KeepAlivePeriodInSeconds": 0,
+                "InstanceGroups": null
+            },
+            "WarmPoolStatus": null,
+            "VpcConfig": null,
+            "StoppingCondition": {
+                "MaxRuntimeInSeconds": 86400,
+                "MaxWaitTimeInSeconds": null
+            },
+            "CreationTime": 1686128677865,
+            "TrainingStartTime": 1686128773465,
+            "TrainingEndTime": 1686129612876,
+            "LastModifiedTime": 1686129612876,
+            "SecondaryStatusTransitions": [
+                {
+                    "Status": "Starting",
+                    "StartTime": 1686128677865,
+                    "EndTime": 1686128773465,
+                    "StatusMessage": "Preparing the instances for training"
+                },
+                {
+                    "Status": "Downloading",
+                    "StartTime": 1686128773465,
+                    "EndTime": 1686128808933,
+                    "StatusMessage": "Downloading input data"
+                },
+                {
+                    "Status": "Training",
+                    "StartTime": 1686128808933,
+                    "EndTime": 1686129502438,
+                    "StatusMessage": "Training image download completed. Training in progress."
+                },
+                {
+                    "Status": "Uploading",
+                    "StartTime": 1686129502438,
+                    "EndTime": 1686129612876,
+                    "StatusMessage": "Uploading generated training model"
+                },
+                {
+                    "Status": "Completed",
+                    "StartTime": 1686129612876,
+                    "EndTime": 1686129612876,
+                    "StatusMessage": "Training job completed"
+                }
+            ],
+            "FinalMetricDataList": null,
+            "EnableNetworkIsolation": null,
+            "EnableInterContainerTrafficEncryption": null,
+            "EnableManagedSpotTraining": null,
+            "CheckpointConfig": null,
+            "TrainingTimeInSeconds": null,
+            "BillableTimeInSeconds": null,
+            "DebugHookConfig": {
+                "LocalPath": null,
+                "S3OutputPath": "s3://sagemaker-us-west-2-935206693453/",
+                "HookParameters": null,
+                "CollectionConfigurations": []
+            },
+            "ExperimentConfig": null,
+            "DebugRuleConfigurations": null,
+            "TensorBoardOutputConfig": null,
+            "DebugRuleEvaluationStatuses": null,
+            "UpstreamPlatformConfig": null,
+            "ProfilerConfig": null,
+            "ProfilerRuleConfigurations": null,
+            "ProfilerRuleEvaluationStatuses": null,
+            "ProfilingStatus": null,
+            "Environment": null,
+            "RetryStrategy": null,
+            "LastModifiedBy": null,
+            "CreatedBy": null,
+            "DisableEFA": null,
+            "ProcessingJobConfig": null,
+            "RemoteDebugConfig": null,
+            "Tags": {
+                "AWS_STEP_FUNCTIONS_EXECUTION_ARN": "arn:aws:states:us-west-2:935206693453:execution:FW-Det-Pipline-20b23e3733e0424ab75c3b677f05f407:116a322c-28d4-470d-aafa-ab2780a4e090",
+                "MANAGED_BY_AWS": "STARTED_BY_STEP_FUNCTIONS"
+            }
+        }
+    }
+}
